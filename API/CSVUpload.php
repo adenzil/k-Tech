@@ -16,11 +16,13 @@ if(isset($_FILES['file'])) {
     // Check upload error
     if($file['error'] != 0) {
         echo json_encode(array('status' => 'failure', 'message' => 'File uploaded unsuccessfully'));
+        die();
     }
 
     // Check file type
     if($file['type'] != 'text/csv') {
         echo json_encode(array('status' => 'failure', 'message' => 'Please upload csv file'));
+        die();
     }
 
     $fileName = sprintf('../Resources/uploads/%s.%s', sha1_file($file['tmp_name']), 'csv');
