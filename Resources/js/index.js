@@ -43,7 +43,7 @@ function store() {
         submitCsvFile(e) {
             let formData = new FormData();
             formData.append("file", this.files[0]);
-            fetch('/api/CSVUpload.php', {
+            fetch('/API/CSVUpload.php', {
                 method: 'POST',
                 body: formData
             })
@@ -76,7 +76,7 @@ function store() {
         getDetailsByStock() {
             if(!this.selectedStock)
                 return;
-            url = `/api/CSVUpload.php?selectedStock=${this.selectedStock}`
+            url = `/API/CSVUpload.php?selectedStock=${this.selectedStock}`
             if(this.startDate) {
                 url += `&startDate=${this.startDate}`
                 if(this.endDate)
